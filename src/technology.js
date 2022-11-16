@@ -29,7 +29,8 @@ const Technology = () => {
 
  useEffect(() => {
    fetchCrew()
- },[fetchCrew])
+    // eslint-disable-next-line 
+ },[page])
  return (
   <main className="tech-main">
    <section className="tech-notes">
@@ -57,7 +58,7 @@ const Technology = () => {
      <h2 className="tech-title title two"> <span className="tech-num num">03</span> SPACE LAUNCH 101</h2> 
      </div>
     <div>
-      <img src={image}  className='tech-image'/>
+      <img src={image} alt='logo' className='tech-image'/>
     </div>
    </section>
   </main>

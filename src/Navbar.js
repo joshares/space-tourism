@@ -21,7 +21,7 @@ const Navbar = ({setBackground}) => {
     <ul className="nav-links">
      <li><NavLink onClick={() => {
       setOpen(true)
-      return setBackground('home')}} to='/'>00 Home</NavLink></li>
+      return setBackground('home')}} to='/space-tourism'>00 Home</NavLink></li>
      <li><NavLink onClick={() => {
         setOpen(true)
       return setBackground('destination')}}  to='/destination'>01 Destination</NavLink></li>

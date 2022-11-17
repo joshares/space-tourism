@@ -37,13 +37,13 @@ code {
   --hm-bcg: url(./assets/technology/background-technology-desktop.jpg);
 }
 body {
-  margin: 0 ;
   padding: 0;
   max-width: 1440px;
   box-sizing: border-box;
   background-image:var(--hm-bcg);
-  /* background-color: var(--hm-bcg); */
-  /* background-color: aquamarine; */
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-size: cover;
   color: white;
   font-weight: 400;
 }

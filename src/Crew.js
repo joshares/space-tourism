@@ -1,5 +1,5 @@
- // eslint-disable-next-line
-import { useState, useEffect } from "react";
+ // eslint-disable-next-linec
+import { useState, useEffect, useRef } from "react";
 import data from './data/crew';
 import doug from './assets/crew/image-douglas-hurley.png';
 import  mark from './assets/crew/image-mark-shuttleworth.png';
@@ -17,6 +17,8 @@ const Crew = () => {
  const [image, setImage] = useState(doug)
  const images = [doug, mark, victor, anou]
  const [active, setActive] = useState('0')
+ const timeoutRef = useRef(null)
+
 
  const fetchCrew = () => {
   setRole(datas.role)
@@ -25,10 +27,26 @@ const Crew = () => {
   setImage(images[page])
   setDatas(data[page])
  } 
- const handleClick = (event) => {
-  setPage(event.target.id)
-  setActive(event.target.id)
- }
+
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearInterval(timeoutRef.current);
+    }
+  }
+
+ useEffect(() => {
+    resetTimeout();
+    timeoutRef.current = setInterval(() => {
+      setPage((prevpage) =>
+          prevpage === (images.length - 1) ? 0 : (+prevpage + 1)
+        )
+    }, 3000)
+      setActive(`${page}`)
+    return  () => {
+      resetTimeout();
+    }
+       // eslint-disable-next-line
+  }, [page]);
 
  useEffect(() => {
    fetchCrew()
@@ -55,14 +73,26 @@ const Crew = () => {
      </div>
     </div>
     <div className="crew-buttons">
-      <button id={'0'} onClick={handleClick}
+      <button id={'0'} onClick={(e)=> {
+        setPage(0)
+        setActive(e.target.id)
+      }}
       className={active === '0' ? 'crew-button active-crew' : 'crew-button'}></button>
-      <button id={'1'} onClick={handleClick} 
+      <button id={'1'} onClick={(e)=> {
+        setPage(1)
+        setActive(e.target.id)
+      }} 
       className={active === '1' ? 'crew-button active-crew' : 'crew-button'}
       ></button>
-      <button id={'2'} onClick={handleClick}
+      <button id={'2'} onClick={(e)=> {
+        setPage(2)
+        setActive(e.target.id)
+      }}
       className={active === '2' ? 'crew-button active-crew' : 'crew-button'}></button>
-      <button id={'3'} onClick={handleClick}
+      <button id={'3'} onClick={(e)=> {
+        setPage(3)
+        setActive(e.target.id)
+      }}
       className={active === '3' ? 'crew-button active-crew' : 'crew-button'}></button>
     </div>
    </section>

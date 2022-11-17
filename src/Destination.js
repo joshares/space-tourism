@@ -4,7 +4,6 @@ import moon from './assets/destination/image-moon.png';
 import mars from './assets/destination/image-mars.png'
 import europa from './assets/destination/image-europa.png'
 import titan from './assets/destination/image-titan.png'
-import { NavLink } from "react-router-dom";
 
 
 const Destination = () => {
@@ -33,13 +32,14 @@ const Destination = () => {
 
  useEffect(() => {
    fetchCrew()
+    // eslint-disable-next-line
  },[fetchCrew])
  return (
   <main className="dest-main">
    <section className=" dest-images">
     <div><h2 className="dest-title title"> <span className="dest-num num">01</span> PICK YOUR DESTINATION</h2></div>
     <div>
-     <img className="dest-image rotate-image"  src={image}/>
+     <img className="dest-image rotate-image" alt="logo" src={image}/>
     </div>
    </section>
    <section className="dest-notes">

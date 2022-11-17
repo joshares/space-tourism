@@ -1,3 +1,4 @@
+ // eslint-disable-next-line
 import { useState, useEffect } from "react";
 import data from './data/crew';
 import doug from './assets/crew/image-douglas-hurley.png';
@@ -31,6 +32,7 @@ const Crew = () => {
 
  useEffect(() => {
    fetchCrew()
+    // eslint-disable-next-line
  },[fetchCrew])
  
  return (
@@ -69,7 +71,7 @@ const Crew = () => {
       <h2 className="crew-title two title"> <span className="crew-num num">02</span> MEET OUR CREW</h2>
     </div>
     <div>
-      <img src={image}  className='crew-image'/>
+      <img src={image} alt='logo'  className='crew-image'/>
     </div>
    </section>
   </main>

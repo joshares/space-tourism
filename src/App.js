@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
     <Navbar setBackground={setBackground} />
     <Routes>
-      <Route  index element={<Home setBackground={setBackground}/>}/>
+      <Route  path="space-tourism" element={<Home setBackground={setBackground}/>}/>
       <Route path='destination' element={<Destination/>}/>
       <Route path='crew' element={<Crew/>}/>
       <Route path='technology' element={<Technology/>}/>
